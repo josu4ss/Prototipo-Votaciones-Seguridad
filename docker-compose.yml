@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: votacion_segura_postgres
+    environment:
+      POSTGRES_DB: votacion
+      POSTGRES_USER: votacion
+      POSTGRES_PASSWORD: votacion_dev
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres_votacion:/var/lib/postgresql/data
+      - ./backend/db/001_schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U votacion -d votacion"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  postgres_votacion:

@@ -1,0 +1,33 @@
+# Variables de entorno y credenciales
+.env
+.env.*
+!.env.example
+**/*.jks
+**/*.keystore
+**/key.properties
+
+# Node.js / NestJS
+node_modules/
+dist/
+coverage/
+*.log
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+.packages
+
+# Android
+.gradle/
+local.properties
+captures/
+
+# Archivos del IDE
+.idea/
+*.iml
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
